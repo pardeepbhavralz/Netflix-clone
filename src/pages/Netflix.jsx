@@ -27,7 +27,7 @@ useEffect(()=>{
 
 useEffect(()=>{
 if(genresLoaded) dispatch(fetchMovies({type: "all" }));
-});
+}, [genresLoaded]);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true );

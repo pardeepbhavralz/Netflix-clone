@@ -11,7 +11,7 @@ import SelectGenre from "../components/SelectGenre";
 import Slider from "../components/Slider";
 import NotAvailable from "../components/NotAvailable";
 
-function MoviePage() {
+function TVShows() {
   const [isScrolled, setIsScrolled] = useState(false);
   const movies = useSelector((state) => state.netflix.movies);
   const genres = useSelector((state) => state.netflix.genres);
@@ -27,7 +27,7 @@ function MoviePage() {
 
   useEffect(() => {
     if (genresLoaded);
-      dispatch(fetchMovies({ genres, type: "movie" }));
+      dispatch(fetchMovies({ genres, type: "tv" }));
      }, [genresLoaded]);
 
   // const [user, setUser] = useState(undefined);
@@ -48,7 +48,7 @@ function MoviePage() {
         <Navbar isScrolled={isScrolled} />
       </div>
       <div className="data">
-        <SelectGenre genres={genres} type="movie" />
+        <SelectGenre genres={genres} type="tv" />
         {movies.length ? <Slider movies={movies} /> : <NotAvailable />}
       </div>
     </Container>
@@ -65,4 +65,4 @@ const Container = styled.div`
     }
   }
 `;
-export default MoviePage;
+export default TVShows;
